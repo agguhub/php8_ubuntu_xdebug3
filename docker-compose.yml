@@ -6,12 +6,10 @@ services:
     volumes:
       - ./code_source:/app
       - ./conf/xdebug.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
-      - errors:errors
-      - conf/vhost.conf:etc/apache2/sites-available/000-default.conf
-      - conf/apache.conf:etc/apache2/conf-available/z-app.conf
-      - code_source/index.php:app/index.php
-      - conf/xdebug.ini:usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini      
+      - ./errors:/errors
+      - ./conf/vhost.conf:/etc/apache2/sites-available/000-default.conf
+      - ./conf/apache.conf:/etc/apache2/conf-available/z-app.conf      
     ports:
-      - 8000:8000
+      - 8000:80
     extra_hosts:
       - host.docker.internal:host-gateway
