@@ -28,4 +28,3 @@ RUN pecl install xdebug-3.2.1 \
 
 RUN a2enmod rewrite remoteip && \
     a2enconf z-app
-CMD [ "php","-S","0.0.0.0:8000" ]
